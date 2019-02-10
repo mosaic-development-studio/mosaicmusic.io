@@ -1,0 +1,174 @@
+/* Audio */
+
+/* Font Awesome */
+.fa {
+    position: absolute;
+    color: #2b2b2b;
+    font-size: 8px;
+    cursor: pointer;
+    -moz-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+.fa-forward, .fa-play, .fa-backward, .fa-pause {
+    top: 6px;
+}
+
+.fa-play, .fa-forward {
+    left: 7px;
+}
+
+.fa-pause {
+    left: 6px;
+}
+
+.fa-backward {
+    left: 5px;
+}
+
+.fa-pause,
+.fa-play:hover,
+.fa-play:active {
+    color: #ffc371;
+}
+/* FA End */
+
+.mosaic-player,.mosaic-audio {
+    width: 100%;
+    margin: 25px auto 0;
+}
+
+.mosaic-gui {
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.mosaic-seek-bar, .mosaic-play-bar {
+    max-width: 100%;
+}
+
+.mosaic-controls {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.mosaic-controls li {
+    display: inline;
+}
+
+.mosaic-controls a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.mosaic-play, .mosaic-next {
+    margin-left: 5px;
+}
+
+.mosaic-play,.mosaic-pause,.mosaic-previous,.mosaic-next {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    line-height: 20px;
+    border: 2px solid #2b2b2b;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.mosaic-play:hover ,.mosaic-previous:hover ,.mosaic-next:hover {
+    background-color: #2b2b2b;
+}
+
+.mosaic-play:hover i ,.mosaic-previous:hover i ,.mosaic-next:hover i {
+    color: #2b2b2b;
+}
+
+.mosaic-play i {
+    margin-left: 1px;
+    transition: 0.2s ease;
+    -moz-transition: 0.2s ease;
+    -webkit-transition: 0.2s ease;
+}
+
+.mosaic-seek-bar {
+    width: 0;
+    top: 1px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mosaic-title ul, .mosaic-time-holder {
+    font-family: 'Roboto', sans-serif;
+    color: #2b2b2b;
+    font-size: 12px;
+    line-height: 30px;
+    position: absolute;
+    top: -4px;
+    pointer-events: none;
+}
+
+.mosaic-time-holder {
+    right: 15px;
+}
+
+.mosaic-title ul {
+    left: 35px;
+    list-style: none;
+}
+
+.mosaic-progress {
+    overflow: hidden;
+    position: absolute;
+    left: 100px;
+    top: 0;
+    width: calc(100% - 200px);
+    cursor: pointer;
+    background-color: #2b2b2b;
+    height: 2px;
+    margin-top: 10px;
+}
+
+.mosaic-progress.active {
+    background-color: #ffc371;
+    -moz-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+.mosaic-next.active i,
+.mosaic-previous.active i {
+    color: #ffc371;
+}
+
+.mosaic-next.active,
+.mosaic-previous.active,
+.mosaic-play.active {
+    border-color: #ffc371;
+}
+
+.mosaic-next.active:hover,
+.mosaic-previous.active:hover,
+.mosaic-play.active:hover {
+    background-color: #ffc371;
+}
+
+.mosaic-play-bar {
+    width: 0;
+    top: 1px;
+    height: 2px;
+    background-color: #2b2b2b;
+    transition: 0.1s ease;
+}
+
+.mosaic-previous svg {
+    width: 15px;
+}
+
+.mosaic-type-single {
+    margin-bottom: 10px;
+}

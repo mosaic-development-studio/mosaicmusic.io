@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+a {
+    text-decoration: none;
+    color: #727272;
+    -moz-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+a:hover .long-arrow path {
+    fill: #ff990e;
+}
+
+footer p {
+    text-align: center;
+    font-size: 16px;
+    margin: 50px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Major Mono Display', serif;
+    text-transform: lowercase;
+}
+
+h1 {
+    font-size: 6.5em;
+    text-align: right;
+}
+
+h1.contact {
+    font-size: 6em;
+}
+
+h5 {
+    font-size: 2em;
+    text-align: right;
+}
+
+h6 {
+    font-size: 1.5em;
+}
+
+header {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    background-color: #2b2b2b;
+    z-index: 2;
+}
+
+header p {
+    margin: 0;
+}
+
+img,
+svg path,
+svg rect,
+svg polygon,
+.works--text {
+    -moz-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+img.img--main {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+section:first-of-type {
+    padding: 200px 0 100px;
+}
+
+section {
+    padding: 100px 0;
+}
+
+.container {
+    max-width: 960px;
+}
+
+p.content {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.05em;
+    text-align: justify;
+    font-size: 12px;
+    line-height: 2em;
+    margin-bottom: 30px;
+}
+
+p.content.low-width {
+    max-width: 400px;
+}
+
+.content--link {
+    position: relative;
+}
+
+.content--link:hover {
+    color: #ff990e;
+}
+
+.content--link:hover i {
+    color: #ff990e;
+}
+
+.content--link:after {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: #727272;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=(50));
+    opacity: 0.5;
+    content: "";
+    -moz-transition: all 250ms ease-in-out;
+    -webkit-transition: all 250ms ease-in-out;
+    -o-transition: all 250ms ease-in-out;
+    transition: all 250ms ease-in-out;
+}
+
+.content--link:hover:after {
+    width: 99%;
+    background: #ff990e;
+}
+
+.content--link .fa {
+    color: #808080;
+}
+
+.content-section {}
+
+.email:hover {
+    cursor: pointer;
+}
+
+.email::selection {
+    background-color: rgba(255, 95, 109, 0.5);
+    color: #fff;
+}
+
+.email.active:after {
+    width: 0%;
+}
+
+.header-social a:not(:first-child) {
+    margin-left: 15px;
+}
+
+.logo {
+    background: -webkit-linear-gradient(bottom right, #FF5F6D, #ff990e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.long-arrow {
+    width: 10px;
+    margin-left: 10px;
+}
+
+.mosaic--header div:first-child {
+    text-align: left;
+}
+
+.mosaic--header div {
+    text-align: center;
+}
+
+.mosaic--header div:last-child {
+    text-align: right;
+}
+
+.mosaic--logo:hover {
+    cursor: pointer;
+}
+
+.mosaic--logo:hover svg g .mosaic--orange {
+    fill: #ff990e;
+}
+
+.mosaic--logo:hover svg g .mosaic--red {
+    fill: #ff5f6d;
+}
+
+.vertical--divide {
+    background-color: #2b2b2b;
+    background: -webkit-linear-gradient(bottom right, #ff990e, #2b2b2b);
+    height: 11em;
+    margin: 8em 0 1em;
+    width: 1px;
+}
+
+.vertical--divide.short {
+    height: 2em;
+}
+
+.vertical--divide.short.bottom {
+    height: 2em;
+    margin: 13em 0 1em;
+}
+
+.vertical--divide.short.divide-orange {
+    border-color: #ff990e;
+    margin: 3em 0 1em;
+    height: 0.8em;
+}
+
+.vertical--divide.short.divide-red {
+    height: 1em;
+    border-color: #ff5f6d;
+}
+
+.vertical--divide.short.mosaic--works {
+    height: 3em;
+    margin: 3em 0 1em;
+}
+
+.video-container {
+    margin-top: 2em;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container.margin {
+    margin-top: 3em;
+}
+
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+::selection {
+    background-color: #2b2b2b;
+    color: #f9faf4;
+}
+
+@media screen and (max-width: 700px) {
+    h1, h1.contact {
+        text-align: left;
+        font-size: 4.5em;
+    }
+
+    .credits .hide {
+        display: none;
+    }
+
+    .vertical--divide.short.bottom.works {
+        display: none;
+    }
+
+    .vertical--divide {
+        height: 6em;
+        margin: 4em 0 1em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .credits .hide {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .container {
+        width: 90%;
+    }
+}
