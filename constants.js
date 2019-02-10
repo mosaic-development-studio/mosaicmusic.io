@@ -9,7 +9,7 @@ export const SOURCE = {
     CSS: 'client/**/*.css',
     HTML: 'client/*.html',
     JAVASCRIPT: 'client/js/index.js',
-    SASS: 'client/sass/base.scss',
+    SASS: 'client/scss/base.scss',
     STATIC: [
         'client/**/*.ico',
         'client/**/*.jpg',
@@ -32,7 +32,7 @@ export const TASKS = {
     CSS: 'css',
     DEFAULT: 'default',
     HTML: 'html',
-    SASS: 'sass',
+    SASS: 'scss',
     STATIC: 'static',
     WATCH: 'watch',
     WEBPACK: 'webpack'

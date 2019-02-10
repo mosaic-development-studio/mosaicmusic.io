@@ -8,7 +8,7 @@
     "lint": "eslint --ext=.js,.html . && sass-lint -c -v -q",
     "postinstall": "npm run build",
     "test": "jest --no-cache . --passWithNoTests",
-    "watch": "gulp watch"
+    "watch": "gulp build && gulp watch"
   },
   "pre-commit": [
     "lint"

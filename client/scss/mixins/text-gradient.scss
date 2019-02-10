@@ -1,0 +1,12 @@
+@mixin gradient-text($leftColor, $rightColor) {
+    background: -webkit-linear-gradient(bottom right, $rightColor, $leftColor);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    ::selection {
+        background: rgba(0, 0, 0, 0);
+        background-clip: initial;
+        -webkit-background-clip: initial;
+        -webkit-text-fill-color: initial;
+    }
+}
