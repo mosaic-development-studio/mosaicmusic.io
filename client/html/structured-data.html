@@ -1,3 +1,92 @@
-<script id="structured-data" type="text/javascript">
-
+<script id="structured-data" type="application/ld+json">
+    [
+        {
+            "@context": "http://schema.org",
+            "@type": "Person",
+            "name": "Mike Skalandunas",
+            "givenName": "Michael Skalandunas",
+            "alternateName": "Mosaic Music & Sound",
+            "description": "Composer for video games, film, and visual media",
+            "url": "http://mosaicmusic.io",
+            "sameAs": [
+                "https://www.instagram.com/mskalandunas/",
+                "https://www.linkedin.com/in/mskalandunas/",
+                "https://soundcloud.com/mskalandunas",
+                "https://twitter.com/mskalandunas/"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Seattle",
+                "addressRegion": "WA",
+                "postalCode": "98103"
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "./img/m.jpg"
+            },
+            "affiliation": {
+                "@type": "Organization",
+                "brand": "Mosaic Music & Sound",
+                "email": "hello@mosaicmusic.io",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "./img/logo.png"
+                }
+            },
+            "email": "hello@mosaicmusic.io",
+            "jobTitle": "Composer"
+        },
+        {
+            "@context": "http://schema.org",
+            "@type": "MusicGroup",
+            "name": "Mosaic Music & Sound",
+            "alternateName": "Mike Skalandunas",
+            "description": "Composer for video games, film, and visual media",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "./img/logo.png"
+            },
+            "image": {
+                "@type": "ImageObject",
+                "url": "./img/m.jpg"
+            },
+            "url": "http://mosaicmusic.io",
+            "genre": [
+                "Soundtrack",
+                "Ambient",
+                "Classical",
+                "Electronic"
+            ],
+            "sameAs": [
+                "https://www.instagram.com/mskalandunas/",
+                "https://www.linkedin.com/in/mskalandunas/",
+                "https://soundcloud.com/mskalandunas",
+                "https://twitter.com/mskalandunas/"
+            ],
+            "member": [
+                {
+                    "@type": "OrganizationRole",
+                    "member": {
+                        "@type": "Person",
+                        "name": "Mike Skalandunas",
+                        "alternateName": "Mosaic Music & Sound",
+                        "givenName": "Michael Skalandunas",
+                        "sameAs": [
+                            "https://www.instagram.com/mskalandunas/",
+                            "https://www.linkedin.com/in/mskalandunas/",
+                            "https://soundcloud.com/mskalandunas",
+                            "https://twitter.com/mskalandunas/"
+                        ]
+                    },
+                    "image": {
+                        "@type": "ImageObject",
+                        "url": "./img/m.jpg"
+                    },
+                    "roleName": [
+                        "composer"
+                    ]
+                }
+            ]
+        }
+    ]
 </script>
