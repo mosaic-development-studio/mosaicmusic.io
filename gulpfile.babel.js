@@ -75,4 +75,5 @@ gulp.task(TASKS.BUILD, gulp.series([
     TASKS.STATIC,
     TASKS.WEBPACK
 ]));
+
 gulp.task(TASKS.DEFAULT, gulp.series([TASKS.BUILD, TASKS.WATCH]));
