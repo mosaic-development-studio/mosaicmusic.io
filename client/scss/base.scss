@@ -1,10 +1,11 @@
+// Mixins
 @import 'mixins/text-gradient';
 
+// Modules
 @import 'modules/common';
 @import 'modules/constants';
 @import 'modules/player';
 @import 'modules/scroll-bar';
 
-
-
+// This will eventually be removed
 @import 'modules/style';
