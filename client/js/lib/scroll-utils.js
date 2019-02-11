@@ -1,3 +1,7 @@
+export const clickScroller = (node, targetPixelYValue = 0) => {
+    node.addEventListener('click', () => scrollToY(targetPixelYValue));
+};
+
 export const scrollToY = (targetPixelYValue = 0, speed = 200, easing = 'easeOutSine') => {
     const scrollY = window.scrollY;
     const time = Math.max(0.1, Math.min(Math.abs(scrollY - targetPixelYValue) / speed, 0.8));
