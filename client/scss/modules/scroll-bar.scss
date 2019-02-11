@@ -10,11 +10,11 @@ body::-webkit-scrollbar {
     border-right: 25px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     height: 200px;
-    left: 25px;
+    right: 22px;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
-    width: 1px;
+    width: 3px;
 
     &::after,
     &::before {
@@ -39,8 +39,9 @@ body::-webkit-scrollbar {
 
 .mosaic-scroll-bar-scroller {
     background-color: #2b2b2b;
+    border-radius: 1px;
     height: 28px;
-    width: 1px;
+    width: 3px;
 }
 
 @media (max-width: 1130px) {
