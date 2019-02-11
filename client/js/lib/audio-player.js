@@ -114,15 +114,15 @@ export class Audio {
     }
 
     next() {
-        let count = this.current.getAttribute('src')[6];
+        let count = this.current.getAttribute('src')[8];
         let wasPaused = false;
 
-        if (count === this.tracks.length) {
-            this.current.setAttribute('src', `audio/${this.tracks[0].src}.mp3`);
+        if (+count === this.tracks.length) {
+            this.current.setAttribute('src', `./audio/${this.tracks[0].src}.mp3`);
             this.title.innerHTML = this.tracks[0].title;
             this.description.innerHTML = this.tracks[0].description;
         } else {
-            this.current.setAttribute('src', `audio/${this.tracks[count].src}.mp3`);
+            this.current.setAttribute('src', `./audio/${this.tracks[count].src}.mp3`);
             this.title.innerHTML = this.tracks[count].title;
             this.description.innerHTML = this.tracks[count].description;
         }
@@ -161,20 +161,20 @@ export class Audio {
     }
 
     previous() {
-        let count = this.current.getAttribute('src')[6];
+        let count = this.current.getAttribute('src')[8];
         let wasPaused = false;
 
-        if (count === 1) {
+        if (+count === 1) {
             this.current.setAttribute(
                 'src',
-                `audio/${this.tracks[this.tracks.length - 1].src}.mp3`
+                `./audio/${this.tracks[this.tracks.length - 1].src}.mp3`
             );
             this.title.innerHTML = this.tracks[this.tracks.length - 1].title;
             this.description.innerHTML = this.tracks[this.tracks.length - 1].description;
         } else {
             this.current.setAttribute(
                 'src',
-                `audio/${this.tracks[count - 2].src}.mp3`
+                `./audio/${this.tracks[count - 2].src}.mp3`
             );
             this.title.innerHTML = this.tracks[count - 2].title;
             this.description.innerHTML = this.tracks[count - 2].description;
