@@ -1,14 +1,16 @@
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
     display: none;
 }
 
 .mosaic-scroll-bar {
-    background-color: #2b2b2b;
+    background-color: #FFC371;
     background: -webkit-linear-gradient(bottom right, #FF5F6D, #FFC371);
-    border-radius: 5px;
+    background-clip: padding-box;
+    border-left: 25px solid rgba(0, 0, 0, 0);
+    border-right: 25px solid rgba(0, 0, 0, 0);
     cursor: pointer;
     height: 200px;
-    left: 50px;
+    left: 25px;
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -42,8 +44,40 @@
 }
 
 @media (max-width: 1130px) {
-    ::-webkit-scrollbar {
-        display: initial;
+    body {
+        &::-webkit-scrollbar {
+            all: unset;
+            background: -webkit-linear-gradient(bottom right, rgba(255, 95, 108, 0.5), #f9faf4);
+            display: auto;
+            width: 7px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(43, 43, 43, 0.5);
+          border-radius: 5px;
+          outline: 1px solid slategrey;
+        }
+    }
+
+    .mosaic-scroll-bar {
+        display: none;
+    }
+}
+
+@media (max-height: 320px) {
+    body {
+        &::-webkit-scrollbar {
+            all: unset;
+            background: -webkit-linear-gradient(bottom right, rgba(255, 95, 108, 0.5), #f9faf4);
+            display: auto;
+            width: 7px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: rgba(43, 43, 43, 0.5);
+          border-radius: 5px;
+          outline: 1px solid slategrey;
+        }
     }
 
     .mosaic-scroll-bar {
