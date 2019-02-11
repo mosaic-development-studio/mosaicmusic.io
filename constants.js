@@ -15,7 +15,8 @@ export const SOURCE = {
         'client/**/*.jpg',
         'client/**/*.png',
         'client/**/*.svg',
-        'client/**/*.mp3'
+        'client/**/*.mp3',
+        'client/**/*.txt'
     ],
     TEMPLATES: 'client/templates/*.html'
 };
