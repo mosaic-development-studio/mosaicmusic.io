@@ -1,5 +1,5 @@
 import { Audio } from './lib/audio-player';
-import { scrollBarInitializer } from './lib/scroll-bar';
+import { scrollBarInitializer } from './scroll-bar';
 import { tracks } from './lib/tracks';
 
 window.onload = () => {
