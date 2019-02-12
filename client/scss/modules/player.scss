@@ -9,6 +9,7 @@
     -moz-transition: all 250ms ease-in-out;
     -webkit-transition: all 250ms ease-in-out;
     -o-transition: all 250ms ease-in-out;
+    pointer-events: none;
     transition: all 250ms ease-in-out;
 }
 
