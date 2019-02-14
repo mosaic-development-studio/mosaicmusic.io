@@ -22,26 +22,3 @@ export const formatPlaybackTime = timeInSeconds => {
 };
 
 export const isObject = object => object === Object(object);
-
-/*
-    config = {
-        paused: togglePlayClass,
-        currentTime: updateCurrentTime
-    }
-*/
-
-// export const createState = (
-//     defaultState = {},
-//     config = {}
-// ) => {
-//     return new Proxy(
-//         defaultState,
-//         Object.keys(config).reduce((handlers, prop) => ({
-//             set(target, prop, value) {
-//                 target[prop] = value;
-//                 config[prop]();
-//                 return true;
-//             }
-//         }), {})
-//     );
-// };
