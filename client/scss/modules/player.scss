@@ -28,12 +28,6 @@
 .fa-backward {
     left: 5px;
 }
-
-.fa-pause,
-.fa-play:hover,
-.fa-play:active {
-    color: #ffc371;
-}
 /* FA End */
 
 .mosaic-player,.mosaic-audio {
@@ -99,7 +93,7 @@
     width: 0;
     top: 1px;
     height: 2px;
-    background-color: rgba(202, 202, 202, 0.5);
+    background-color: rgba(202, 202, 202, 0.8);
 }
 
 .mosaic-title ul, .mosaic-time-holder {
@@ -164,7 +158,7 @@
     width: 0;
     top: 1px;
     height: 2px;
-    background-color: #ff1a1a;
+    background-color: #f9faf4;
     transition: 0.1s ease;
 }
 

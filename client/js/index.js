@@ -1,5 +1,5 @@
 import { AudioPlayer } from './components/AudioPlayer';
-import { clickScroller } from './lib/scroll-utils';
+import { clickScroller } from './lib/utils';
 import { scrollBarInitializer } from './scroll-bar';
 
 const initializeApplication = () => {

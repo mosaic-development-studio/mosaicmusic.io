@@ -1,4 +1,4 @@
-import { distanceFromPageTop, visibleDocumentHeightPercentage } from '../lib/dom-utils';
+import { distanceFromPageTop, visibleDocumentHeightPercentage } from '../lib/utils';
 
 const percentageOfPageToScrollBarPixels = ({ documentHeight, scrollBarHeight }, currentHeight) => {
     const percentageOfPageScrolled = currentHeight / documentHeight;

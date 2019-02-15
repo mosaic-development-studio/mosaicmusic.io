@@ -1,14 +1,17 @@
-import { formatPlaybackTime, isObject } from '../lib/utils';
-import { handleOffsetParent } from '../lib/dom-utils';
+import { formatPlaybackTime, handleOffsetParent, isObject } from '../lib/utils';
 
 const AUDIO_PLAYER = {
+    PAUSE_CLASSNAME: 'fa-pause',
     PLAY_BUTTON_CLASSNAME: 'mosaic-play',
+    PLAY_CLASSNAME: 'fa-play',
     PLAYBAR_CLASSNAME: 'mosaic-play-bar',
     PROGRESS_BAR_CLASSNAME: 'mosaic-progress'
 };
 
 const {
+    PAUSE_CLASSNAME,
     PLAY_BUTTON_CLASSNAME,
+    PLAY_CLASSNAME,
     PLAYBAR_CLASSNAME,
     PROGRESS_BAR_CLASSNAME
 } = AUDIO_PLAYER;
@@ -16,12 +19,13 @@ const {
 export class AudioPlayer {
     constructor({ currentTime = 0, node, src }) {
         this.node = node;
-        this.audio = node.querySelector('audio');
-        this.currentTimeNode = node.querySelector('.mosaic-current-time');
-        this.durationNode = node.querySelector('.mosaic-duration');
+        this.audio = this.node.querySelector('audio');
+        this.currentTimeNode = this.node.querySelector('.mosaic-current-time');
+        this.durationNode = this.node.querySelector('.mosaic-duration');
+        this.playButtonIcon = this.node.querySelector('.mosaic-play i');
         this.playhead = this.node.querySelector('.mosaic-play-bar');
         this.seekBar = this.node.querySelector('.mosaic-seek-bar');
-        this.timeline = node.querySelector('.mosaic-progress');
+        this.timeline = this.node.querySelector('.mosaic-progress');
         this.src = src;
         this.state = {
             currentTime,
@@ -60,6 +64,7 @@ export class AudioPlayer {
                 switch(className) {
                     case PLAY_BUTTON_CLASSNAME:
                         this.playbackHandler();
+                        this.iconToggle();
                         return;
                     case PLAYBAR_CLASSNAME:
                     case PROGRESS_BAR_CLASSNAME:
@@ -83,6 +88,18 @@ export class AudioPlayer {
                 return;
             default:
                 return;
+        }
+    }
+
+    iconToggle() {
+        if (this.state.paused) {
+            this.playButtonIcon.classList.remove(PAUSE_CLASSNAME);
+            this.playButtonIcon.classList.add(PLAY_CLASSNAME);
+        }
+
+        else {
+            this.playButtonIcon.classList.remove(PLAY_CLASSNAME);
+            this.playButtonIcon.classList.add(PAUSE_CLASSNAME);
         }
     }
 
@@ -114,7 +131,7 @@ export class AudioPlayer {
         this.setState({ paused: !this.state.paused });
     }
 
-    playbarOffsetLeftPercentage(e) { // percentage of playbar to the left of click
+    playbarOffsetLeftPercentage(e) {
         const positionOffset = handleOffsetParent(this.timeline);
 
         return (e.pageX - positionOffset) / this.state.timelineWidth;

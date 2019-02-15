@@ -1,7 +1,6 @@
 'use strict';
 
-import { formatPlaybackTime } from './utils';
-import { handleOffsetParent } from './dom-utils';
+import { formatPlaybackTime, handleOffsetParent } from './utils';
 
 export class Audio {
     constructor(node, tracks) {
