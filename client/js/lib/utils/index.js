@@ -2,22 +2,23 @@ import {
     distanceFromPageTop,
     documentHeight,
     elementOffsetHeight,
+    findCurrentTrackFromNode,
     handleOffsetParent,
-    viewportHeight,
     visibleDocumentHeightPercentage
 } from './dom-utils';
 import { clickScroller, scrollToY } from './scroll-utils';
-import { formatPlaybackTime, isObject } from './utils';
+import { findIndexOfNextTrack, formatPlaybackTime, isObject } from './utils';
 
 export {
     clickScroller,
     distanceFromPageTop,
     documentHeight,
     elementOffsetHeight,
+    findCurrentTrackFromNode,
+    findIndexOfNextTrack,
     formatPlaybackTime,
     handleOffsetParent,
     isObject,
     scrollToY,
-    viewportHeight,
     visibleDocumentHeightPercentage
 };

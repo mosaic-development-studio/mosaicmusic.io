@@ -1,34 +1,55 @@
-import { formatPlaybackTime, handleOffsetParent, isObject } from '../lib/utils';
+import {
+    findCurrentTrackFromNode,
+    findIndexOfNextTrack,
+    formatPlaybackTime,
+    handleOffsetParent,
+    isObject
+} from '../lib/utils';
 
-const AUDIO_PLAYER = {
-    PAUSE_CLASSNAME: 'fa-pause',
-    PLAY_BUTTON_CLASSNAME: 'mosaic-play',
-    PLAY_CLASSNAME: 'fa-play',
-    PLAYBAR_CLASSNAME: 'mosaic-play-bar',
-    PROGRESS_BAR_CLASSNAME: 'mosaic-progress'
+const AUDIO_PLAYER_CLASSNAMES = {
+    NEXT_BUTTON: 'mosaic-next',
+    PAUSE: 'fa-pause',
+    PLAY_BUTTON: 'mosaic-play',
+    PLAY: 'fa-play',
+    PLAYBAR: 'mosaic-play-bar',
+    PREVIOUS_BUTTON: 'mosaic-previous',
+    PROGRESS_BAR: 'mosaic-progress'
 };
 
-const {
-    PAUSE_CLASSNAME,
-    PLAY_BUTTON_CLASSNAME,
-    PLAY_CLASSNAME,
-    PLAYBAR_CLASSNAME,
-    PROGRESS_BAR_CLASSNAME
-} = AUDIO_PLAYER;
+export const {
+    NEXT_BUTTON,
+    PAUSE,
+    PLAY_BUTTON,
+    PLAY,
+    PLAYBAR,
+    PREVIOUS_BUTTON,
+    PROGRESS_BAR
+} = AUDIO_PLAYER_CLASSNAMES;
+
+export const TRACK_ACTIONS = {
+    [NEXT_BUTTON]: 'NEXT',
+    [PREVIOUS_BUTTON]: 'PREVIOUS'
+};
 
 export class AudioPlayer {
-    constructor({ currentTime = 0, node, src }) {
+    constructor({ currentTime = 0, node, src, trackList }) {
         this.node = node;
+        this.src = src;
+        this.trackList = trackList;
+
         this.audio = this.node.querySelector('audio');
+        this.audioSource = this.node.querySelector('source');
         this.currentTimeNode = this.node.querySelector('.mosaic-current-time');
         this.durationNode = this.node.querySelector('.mosaic-duration');
         this.playButtonIcon = this.node.querySelector('.mosaic-play i');
         this.playhead = this.node.querySelector('.mosaic-play-bar');
         this.seekBar = this.node.querySelector('.mosaic-seek-bar');
         this.timeline = this.node.querySelector('.mosaic-progress');
-        this.src = src;
+        this.title = this.node.querySelector('.mosaic-title');
+
         this.state = {
             currentTime,
+            currentTrack: findCurrentTrackFromNode(this.audioSource, this.trackList),
             duration: this.audio.duration,
             paused: true,
             timelineWidth: this.timeline.offsetWidth - this.playhead.offsetWidth
@@ -56,18 +77,31 @@ export class AudioPlayer {
         this.timeline.addEventListener('mouseout', this.removeHover.bind(this), false);
     }
 
+    changeAudioSource(track) {
+        this.audioSource.setAttribute('src', track);
+    }
+
+    changeTrackTitle(title) {
+        this.title.textContent = title;
+    }
+
     eventDelegator(e) {
         const { target, target: { className }, type } = e;
 
         switch(type) {
             case 'click':
                 switch(className) {
-                    case PLAY_BUTTON_CLASSNAME:
+                    case NEXT_BUTTON:
+                    case PREVIOUS_BUTTON:
+                        this.trackChange(e);
+                        this.updateTrackDOM();
+                        return;
+                    case PLAY_BUTTON:
                         this.playbackHandler();
                         this.iconToggle();
                         return;
-                    case PLAYBAR_CLASSNAME:
-                    case PROGRESS_BAR_CLASSNAME:
+                    case PLAYBAR:
+                    case PROGRESS_BAR:
                         this.setAudioCurrentTime(
                             this.playbarOffsetLeftPercentage(e) * this.state.duration
                         );
@@ -93,13 +127,13 @@ export class AudioPlayer {
 
     iconToggle() {
         if (this.state.paused) {
-            this.playButtonIcon.classList.remove(PAUSE_CLASSNAME);
-            this.playButtonIcon.classList.add(PLAY_CLASSNAME);
+            this.playButtonIcon.classList.remove(PAUSE);
+            this.playButtonIcon.classList.add(PLAY);
         }
 
         else {
-            this.playButtonIcon.classList.remove(PLAY_CLASSNAME);
-            this.playButtonIcon.classList.add(PAUSE_CLASSNAME);
+            this.playButtonIcon.classList.remove(PLAY);
+            this.playButtonIcon.classList.add(PAUSE);
         }
     }
 
@@ -154,17 +188,41 @@ export class AudioPlayer {
         }
     }
 
+    trackChange({ target: { className }}) {
+        const nextTrackIndex = findIndexOfNextTrack(
+            TRACK_ACTIONS[className],
+            this.state.currentTrack,
+            this.trackList
+        );
+
+        this.updateCurrentTrack(this.trackList[nextTrackIndex]);
+    }
+
     updateCurrentTime(currentTime) {
         this.setState({ currentTime });
+    }
+
+    updateCurrentTrack(currentTrack) {
+        this.setState({ currentTrack });
     }
 
     updateDuration(duration) {
         this.setState({ duration });
     }
 
-    updateTime(node, time) { // could be moved into a TimeHandlers class
+    updateTime(node, time) {
         if (typeof time === 'number') {
             node.innerHTML = formatPlaybackTime(time);
+        }
+    }
+
+    updateTrackDOM() {
+        this.changeAudioSource(this.state.currentTrack.src);
+        this.changeTrackTitle(this.state.currentTrack.title);
+        this.audio.load();
+
+        if (!this.state.paused) {
+            this.play();
         }
     }
 }
