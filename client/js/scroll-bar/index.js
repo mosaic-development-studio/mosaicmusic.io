@@ -1,11 +1,10 @@
-import { documentHeight, elementOffsetHeight } from '../lib/dom-utils';
+import { documentHeight, elementOffsetHeight, scrollToY } from '../lib/utils';
 import {
     calculateNewPosition,
     calculateScrollerMargin,
     setScrollerMarginTop,
     setNewScrollerStyles
 } from './utils';
-import { scrollToY } from '../lib/scroll-utils';
 
 const scrollToNewPosition = function scrollToNewPosition({ offsetY }) {
     scrollToY(calculateNewPosition(this, offsetY));

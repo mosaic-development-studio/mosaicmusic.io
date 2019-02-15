@@ -15,6 +15,12 @@ export const documentHeight = () => {
 
 export const elementOffsetHeight = element => element.offsetHeight;
 
+export const findCurrentTrackFromNode = (audioNode, trackList) => {
+    const source = audioNode.getAttribute('src');
+
+    return trackList.find(({ src }) => src === source);
+};
+
 export const handleOffsetParent = node => {
     let n = node;
     let o = 0;
