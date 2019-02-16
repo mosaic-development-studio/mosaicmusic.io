@@ -1,0 +1,21 @@
+.video-container {
+    border-radius: 3px;
+    height: 0;
+    margin-top: 2em;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container.margin {
+    margin-top: 3em;
+}
+
+.video-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
