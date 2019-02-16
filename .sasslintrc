@@ -7,9 +7,12 @@
   },
   "rules": {
     "declarations-before-nesting": 1,
-    "indentation": {
+    "indentation": [
+      2,
+      {
         "size": 4
-    },
+      }
+    ],
     "leading-zero": [
         2,
         {
