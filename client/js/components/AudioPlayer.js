@@ -61,6 +61,7 @@ export class AudioPlayer {
         this.audio.addEventListener('timeupdate', this.eventDelegator);
         this.node.addEventListener('click', this.eventDelegator);
         this.timeline.addEventListener('mouseover', this.eventDelegator);
+        window.addEventListener('resize', this.eventDelegator);
 
         this.audio.load();
     }
@@ -114,6 +115,9 @@ export class AudioPlayer {
                 return;
             case 'mouseover':
                 this.addMouseoverEventListeners();
+                return;
+            case 'resize':
+                this.resizeProgressBar();
                 return;
             case 'timeupdate':
                 this.updateCurrentTime(target.currentTime);
@@ -173,6 +177,21 @@ export class AudioPlayer {
 
     removeHover() {
         this.seekBar.style.paddingRight = '0px';
+    }
+
+    resizeProgressBar() {
+        const padding = this.playhead.style.paddingRight
+            ? parseInt(
+                this.playhead.style.paddingRight.substring(
+                    0,
+                    this.playhead.style.paddingRight.length - 2
+                ), 10
+            ) : 0;
+
+        this.state.timelineWidth = (
+            this.timeline.offsetWidth - this.playhead.offsetWidth
+        ) + padding;
+        this.movePlayhead();
     }
 
     setAudioCurrentTime(currentTime) {
