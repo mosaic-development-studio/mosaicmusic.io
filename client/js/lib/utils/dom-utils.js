@@ -33,9 +33,14 @@ export const handleOffsetParent = node => {
     return o;
 };
 
-const viewportHeight = () => Math.max(
+export const viewportHeight = () => Math.max(
     document.documentElement.clientHeight,
     window.innerHeight || 0
+);
+
+export const viewportWidth = () => Math.max(
+    document.documentElement.clientWidth,
+    window.innerWidth || 0
 );
 
 export const visibleDocumentHeightPercentage = () => {

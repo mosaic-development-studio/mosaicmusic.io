@@ -4,6 +4,8 @@ import {
     elementOffsetHeight,
     findCurrentTrackFromNode,
     handleOffsetParent,
+    viewportHeight,
+    viewportWidth,
     visibleDocumentHeightPercentage
 } from './dom-utils';
 import { clickScroller, scrollToY } from './scroll-utils';
@@ -20,5 +22,7 @@ export {
     handleOffsetParent,
     isObject,
     scrollToY,
+    viewportHeight,
+    viewportWidth,
     visibleDocumentHeightPercentage
 };

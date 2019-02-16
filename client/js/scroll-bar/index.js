@@ -3,6 +3,7 @@ import {
     calculateNewPosition,
     calculateScrollerMargin,
     setScrollerMarginTop,
+    scrollBarIsVisible,
     setNewScrollerStyles
 } from './utils';
 
@@ -12,7 +13,6 @@ const scrollToNewPosition = function scrollToNewPosition({ offsetY }) {
 
 export const scrollBarInitializer = function(scrollBarNode, scrollerNode) {
     this.documentHeight = documentHeight();
-    this.mouseDown = false;
     this.scrollBarHeight = elementOffsetHeight(scrollBarNode);
 
     setNewScrollerStyles(scrollerNode, this);
@@ -20,9 +20,12 @@ export const scrollBarInitializer = function(scrollBarNode, scrollerNode) {
     scrollBarNode.addEventListener('click', scrollToNewPosition.bind(this));
 
     window.addEventListener('resize', () => {
-        this.documentHeight = documentHeight();
+        if (scrollBarIsVisible() && !this.scrollBarHeight) {
+            this.documentHeight = documentHeight();
+            this.scrollBarHeight = elementOffsetHeight(scrollBarNode);
 
-        setNewScrollerStyles(scrollerNode, this);
+            setNewScrollerStyles(scrollerNode, this);
+        }
     });
 
     window.addEventListener('scroll', () => {
