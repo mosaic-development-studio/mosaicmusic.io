@@ -1,4 +1,12 @@
-import { distanceFromPageTop, visibleDocumentHeightPercentage } from '../lib/utils';
+import { CONSTANTS } from '../lib/constants';
+import {
+    distanceFromPageTop,
+    viewportHeight,
+    viewportWidth,
+    visibleDocumentHeightPercentage
+} from '../lib/utils';
+
+const { SCROLLBAR_HIDDEN_HEIGHT, SCROLLBAR_HIDDEN_WIDTH } = CONSTANTS;
 
 const percentageOfPageToScrollBarPixels = ({ documentHeight, scrollBarHeight }, currentHeight) => {
     const percentageOfPageScrolled = currentHeight / documentHeight;
@@ -18,6 +26,10 @@ export const calculateScrollerMargin = context => {
 
 const calculateScrollerHeight = ({ scrollBarHeight }) => {
     return scrollBarHeight * visibleDocumentHeightPercentage();
+};
+
+export const scrollBarIsVisible = () => {
+    return viewportHeight() > SCROLLBAR_HIDDEN_HEIGHT && viewportWidth() > SCROLLBAR_HIDDEN_WIDTH;
 };
 
 const setScrollerHeight = (scroller, calculatedHeight) => {
