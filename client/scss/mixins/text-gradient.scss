@@ -1,6 +1,7 @@
-@mixin gradient-text($leftColor, $rightColor) {
+@mixin text-gradient($leftColor: $amber, $rightColor: $wild-watermelon) {
     background: -webkit-linear-gradient(bottom right, $rightColor, $leftColor);
     background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
     ::selection {

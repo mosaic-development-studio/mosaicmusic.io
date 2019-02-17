@@ -1,25 +1,22 @@
+@import '../mixins/text-gradient';
+
 .logo {
-    background: -webkit-linear-gradient(bottom right, $wild-watermelon, $orange-peel);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include text-gradient($amber, $wild-watermelon);
+}
 
-    &::selection {
-        background: $night-rider;
-        background-clip: initial;
-        -webkit-background-clip: initial;
-        -webkit-text-fill-color: initial;
+.mosaic--logo {
+    &:hover {
+        cursor: pointer;
+
+        & svg g {
+            .mosaic {
+                &--orange {
+                    fill: $amber;
+                }
+                &--red {
+                    fill: $wild-watermelon;
+                }
+            }
+        }
     }
-}
-
-.mosaic--logo:hover {
-    cursor: pointer;
-}
-
-.mosaic--logo:hover svg g .mosaic--orange {
-    fill: #ff990e;
-}
-
-.mosaic--logo:hover svg g .mosaic--red {
-    fill: #ff5f6d;
 }

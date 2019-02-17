@@ -23,7 +23,7 @@ a {
     -o-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out;
 
-    &:after {
+    &:after:not(#mosaic-footer-logo) {
         position: absolute;
         top: -5px;
         left: 0;
@@ -42,17 +42,17 @@ a {
 
     &:hover,
     &:hover i {
-        color: $orange-peel;
+        color: $amber;
     }
 
     &:hover:after {
         width: 99%;
-        background: $orange-peel;
+        background: $amber;
     }
 }
 
 a:hover.long-arrow path {
-    fill: $orange-peel;
+    fill: $amber;
 }
 
 h1,

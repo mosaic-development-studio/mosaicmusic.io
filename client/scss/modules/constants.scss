@@ -1,20 +1,17 @@
-@import '../mixins/text-gradient';
-
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 // Colors
+$amber: #d27900;
 $dim-gray: #727272;
 $floral-white: #f9faf4;
 $night-rider: #2b2b2b;
 $orange-peel: #ffc371;
-$wild-watermelon: #ff5f6D;
+$wild-watermelon: #ff0016;
 
-//
 $main-font-color: $night-rider;
 $link-color: $dim-gray;
 $link-hover-color: $orange-peel;
-// $main-gradient: gradient-text($orange-peel, $wild-watermelon);
 
 // Font
 $body-font: 'Roboto', sans-serif;
