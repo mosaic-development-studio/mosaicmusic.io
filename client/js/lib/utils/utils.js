@@ -1,4 +1,4 @@
-import { NEXT_BUTTON, PREVIOUS_BUTTON, TRACK_ACTIONS } from '../../components/AudioPlayer';
+import { NEXT_BUTTON, PREVIOUS_BUTTON, TRACK_ACTIONS } from '../../components/audio/AudioPlayer';
 
 export const findIndexOfNextTrack = (action, currentTrack, trackList) => {
     const indexOfCurrentTrack = trackList.map(track => track.src).indexOf(currentTrack.src);

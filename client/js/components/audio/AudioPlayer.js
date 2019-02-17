@@ -4,7 +4,7 @@ import {
     formatPlaybackTime,
     handleOffsetParent,
     isObject
-} from '../lib/utils';
+} from '../../lib/utils';
 
 const AUDIO_PLAYER_CLASSNAMES = {
     NEXT_BUTTON: 'mosaic-next',
@@ -94,7 +94,7 @@ export class AudioPlayer {
                 switch(className) {
                     case NEXT_BUTTON:
                     case PREVIOUS_BUTTON:
-                        this.trackChange(e);
+                        this.trackChange(TRACK_ACTIONS[e.target.className]);
                         this.updateTrackDOM();
                         return;
                     case PLAY_BUTTON:
@@ -207,9 +207,9 @@ export class AudioPlayer {
         }
     }
 
-    trackChange({ target: { className }}) {
+    trackChange(action) {
         const nextTrackIndex = findIndexOfNextTrack(
-            TRACK_ACTIONS[className],
+            action,
             this.state.currentTrack,
             this.trackList
         );
