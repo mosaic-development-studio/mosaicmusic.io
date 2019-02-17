@@ -35,12 +35,22 @@ gulp.task(TASKS.HTML, () => gulp.src(SOURCE.HTML)
     .pipe(rmHtmlComments()).pipe(gulp.dest(DESTINATION.DIRECTORY))
 );
 
-gulp.task(TASKS.SASS, () => gulp.src(SOURCE.SASS)
+gulp.task(TASKS.SASS.ABOVE_THE_FOLD, () => gulp.src(SOURCE.SASS.ABOVE_THE_FOLD)
     .pipe(sourceMaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourceMaps.write())
     .pipe(autoprefixer(TARGET_BROWSERS))
-    .pipe(concatCss(DESTINATION.CSS))
+    .pipe(concatCss(DESTINATION.SCSS.ABOVE_THE_FOLD))
+    .pipe(cssNano())
+    .pipe(gulp.dest(DESTINATION.DIRECTORY))
+);
+
+gulp.task(TASKS.SASS.BELOW_THE_FOLD, () => gulp.src(SOURCE.SASS.BELOW_THE_FOLD)
+    .pipe(sourceMaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourceMaps.write())
+    .pipe(autoprefixer(TARGET_BROWSERS))
+    .pipe(concatCss(DESTINATION.SCSS.BELOW_THE_FOLD))
     .pipe(cssNano())
     .pipe(gulp.dest(DESTINATION.DIRECTORY))
 );
@@ -64,14 +74,18 @@ gulp.task(TASKS.WATCH, () => {
     gulp.watch(SOURCE.HTML, gulp.series([TASKS.HTML]));
     gulp.watch(SOURCE.STATIC, gulp.series([TASKS.STATIC]));
     gulp.watch(SOURCE.TEMPLATES, gulp.series([TASKS.HTML]));
-    gulp.watch(WATCH_FILES.SASS, gulp.series([TASKS.SASS]));
+    gulp.watch(WATCH_FILES.SASS, gulp.series([
+        TASKS.SASS.ABOVE_THE_FOLD,
+        TASKS.SASS.BELOW_THE_FOLD
+    ]));
     gulp.watch(WATCH_FILES.JAVASCRIPT, gulp.series([TASKS.WEBPACK]));
 });
 
 gulp.task(TASKS.BUILD, gulp.series([
     TASKS.CSS,
     TASKS.HTML,
-    TASKS.SASS,
+    TASKS.SASS.ABOVE_THE_FOLD,
+    TASKS.SASS.BELOW_THE_FOLD,
     TASKS.STATIC,
     TASKS.WEBPACK
 ]));
