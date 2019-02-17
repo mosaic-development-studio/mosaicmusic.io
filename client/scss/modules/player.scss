@@ -1,9 +1,9 @@
-/* Audio */
+@import './constants';
 
 /* Font Awesome */
 .fa {
     position: absolute;
-    color: #2b2b2b;
+    color: $main-font-color;
     font-size: 8px;
     cursor: pointer;
     -moz-transition: all 250ms ease-in-out;
@@ -79,7 +79,7 @@
     height: 20px;
     display: inline-block;
     line-height: 20px;
-    border: 2px solid #2b2b2b;
+    border: 2px solid $night-rider;
     border-radius: 100%;
     cursor: pointer;
 }
@@ -87,13 +87,13 @@
 .mosaic-play:hover,
 .mosaic-previous:hover,
 .mosaic-next:hover {
-    background-color: #2b2b2b;
+    background-color: $night-rider;
 }
 
 .mosaic-play:hover i,
 .mosaic-previous:hover i,
 .mosaic-next:hover i {
-    color: #2b2b2b;
+    color: $floral-white;
 }
 
 .mosaic-play i {
@@ -113,7 +113,7 @@
 .mosaic-title ul,
 .mosaic-time-holder {
     font-family: 'Roboto', sans-serif;
-    color: #2b2b2b;
+    color: $main-font-color;
     font-size: 12px;
     line-height: 30px;
     position: absolute;
@@ -132,7 +132,7 @@
 
 .mosaic-progress {
     background-clip: padding-box;
-    background-color: #2b2b2b;
+    background-color: $night-rider;
     border-bottom: 10px solid transparent;
     border-top: 10px solid transparent;
     cursor: pointer;
@@ -145,7 +145,7 @@
 }
 
 .mosaic-progress.active {
-    background-color: #ffc371;
+    background-color: $orange-peel;
     -moz-transition: all 250ms ease-in-out;
     -webkit-transition: all 250ms ease-in-out;
     -o-transition: all 250ms ease-in-out;
@@ -154,26 +154,26 @@
 
 .mosaic-next.active i,
 .mosaic-previous.active i {
-    color: #ffc371;
+    color: $orange-peel;
 }
 
 .mosaic-next.active,
 .mosaic-previous.active,
 .mosaic-play.active {
-    border-color: #ffc371;
+    border-color: $orange-peel;
 }
 
 .mosaic-next.active:hover,
 .mosaic-previous.active:hover,
 .mosaic-play.active:hover {
-    background-color: #ffc371;
+    background-color: $orange-peel;
 }
 
 .mosaic-play-bar {
     width: 0;
     top: 1px;
     height: 2px;
-    background-color: #f9faf4;
+    background-color: $floral-white;
     transition: 0.1s ease;
 }
 
