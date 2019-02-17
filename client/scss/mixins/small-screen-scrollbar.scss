@@ -1,0 +1,21 @@
+@mixin small-screen-scrollbar() {
+    body {
+        &::-webkit-scrollbar {
+            all: unset;
+            background-color: $amber;
+            background: -webkit-linear-gradient(bottom right, $wild-watermelon, $orange-peel);
+            display: auto;
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $night-rider;
+            border-radius: 1px;
+            outline: 1px solid $dim-gray;
+        }
+    }
+
+    .mosaic-scroll-bar {
+        display: none;
+    }
+}

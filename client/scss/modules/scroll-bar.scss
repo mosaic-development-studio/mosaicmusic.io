@@ -1,13 +1,15 @@
+@import '../mixins/small-screen-scrollbar';
+
 body::-webkit-scrollbar {
     display: none;
 }
 
 .mosaic-scroll-bar {
-    background-color: #FFC371;
-    background: -webkit-linear-gradient(bottom right, #FF5F6D, #FFC371);
+    background-color: $orange-peel;
+    background: -webkit-linear-gradient(bottom right, $wild-watermelon, $orange-peel);
     background-clip: padding-box;
-    border-left: 25px solid rgba(0, 0, 0, 0);
-    border-right: 25px solid rgba(0, 0, 0, 0);
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
     cursor: pointer;
     height: 200px;
     right: 22px;
@@ -38,52 +40,16 @@ body::-webkit-scrollbar {
 }
 
 .mosaic-scroll-bar-scroller {
-    background-color: #2b2b2b;
+    background-color: $night-rider;
     border-radius: 1px;
     height: 28px;
     width: 3px;
 }
 
 @media (max-width: 1130px) {
-    body {
-        &::-webkit-scrollbar {
-            all: unset;
-            background-color: #FFC371;
-            background: -webkit-linear-gradient(bottom right, #FF5F6D, #FFC371);
-            display: auto;
-            width: 3px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #2b2b2b;
-            border-radius: 1px;
-            outline: 1px solid slategrey;
-        }
-    }
-
-    .mosaic-scroll-bar {
-        display: none;
-    }
+    @include small-screen-scrollbar();
 }
 
 @media (max-height: 320px) {
-    body {
-        &::-webkit-scrollbar {
-            all: unset;
-            background-color: #FFC371;
-            background: -webkit-linear-gradient(bottom right, #FF5F6D, #FFC371);
-            display: auto;
-            width: 3px;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: #2b2b2b;
-            border-radius: 1px;
-            outline: 1px solid slategrey;
-        }
-    }
-
-    .mosaic-scroll-bar {
-        display: none;
-    }
+    @include small-screen-scrollbar();
 }

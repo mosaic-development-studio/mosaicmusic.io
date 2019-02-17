@@ -1,7 +1,21 @@
 @import './constants';
 
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+    cursor: default;
+    color: $main-font-color;
+    font-family: $body-font;
+}
+
+html {
+    background-color: $floral-white;
+}
+
 a {
-    color: #727272;
+    color: $link-color;
     position: relative;
     text-decoration: none;
     -moz-transition: all 250ms ease-in-out;
@@ -9,13 +23,13 @@ a {
     -o-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out;
 
-    &:after {
+    &:after:not(#mosaic-footer-logo) {
         position: absolute;
         top: -5px;
         left: 0;
         width: 0%;
         height: 3px;
-        background: #727272;
+        background: $link-color;
         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
         filter: alpha(opacity=(50));
         opacity: 0.5;
@@ -26,22 +40,19 @@ a {
         transition: all 250ms ease-in-out;
     }
 
+    &:hover,
+    &:hover i {
+        color: $amber;
+    }
+
     &:hover:after {
         width: 99%;
-        background: #ff990e;
-    }
-
-    &:hover {
-        color: #ff990e;
-    }
-
-    &:hover i {
-        color: #ff990e;
+        background: $amber;
     }
 }
 
 a:hover.long-arrow path {
-    fill: #ff990e;
+    fill: $amber;
 }
 
 h1,
@@ -50,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Major Mono Display', serif;
+    font-family: $header-font;
     text-transform: lowercase;
 }
 

@@ -1,7 +1,10 @@
 export const DESTINATION = {
-    CSS: 'main.css',
     DIRECTORY: 'dist/',
     JAVASCRIPT: 'main.js',
+    SCSS: {
+        ABOVE_THE_FOLD: 'critical.css',
+        BELOW_THE_FOLD: 'main.css'
+    },
     VENDOR_CSS: 'vendor.css'
 };
 
@@ -9,7 +12,10 @@ export const SOURCE = {
     CSS: 'client/**/*.css',
     HTML: 'client/**/*.html',
     JAVASCRIPT: 'client/js/index.js',
-    SASS: 'client/scss/base.scss',
+    SASS: {
+        ABOVE_THE_FOLD: 'client/scss/critical.scss',
+        BELOW_THE_FOLD: 'client/scss/main.scss'
+    },
     STATIC: [
         'client/**/*.ico',
         'client/**/*.jpg',
@@ -33,7 +39,10 @@ export const TASKS = {
     CSS: 'css',
     DEFAULT: 'default',
     HTML: 'html',
-    SASS: 'scss',
+    SASS: {
+        ABOVE_THE_FOLD: 'scss.critical',
+        BELOW_THE_FOLD: 'scss.main'
+    },
     STATIC: 'static',
     WATCH: 'watch',
     WEBPACK: 'webpack'

@@ -7,7 +7,10 @@
     "build": "gulp build",
     "lint": "eslint --ext=.js,.html . && sass-lint -c -v -q",
     "postinstall": "npm run build",
-    "test": "jest --no-cache . --passWithNoTests",
+    "test:snap": "jest --config ./jest/snap.config.js --passWithNoTests",
+    "test:spec": "jest --config ./jest/spec.config.js --passWithNoTests",
+    "test:unit": "jest --config ./jest/unit.config.js --passWithNoTests",
+    "test": "npm run build && npm run lint && npm run test:snap && npm run test:spec && npm run test:unit",
     "watch": "gulp build && gulp watch"
   },
   "pre-commit": [
