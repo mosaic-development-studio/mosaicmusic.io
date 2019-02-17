@@ -7,10 +7,12 @@
     "build": "gulp build",
     "lint": "eslint --ext=.js,.html . && sass-lint -c -v -q",
     "postinstall": "npm run build",
+    "server": "node ./__test__/server.js",
+    "test:image": "jest --config ./jest/image.config.js --passWithNoTests",
     "test:snap": "jest --config ./jest/snap.config.js --passWithNoTests",
     "test:spec": "jest --config ./jest/spec.config.js --passWithNoTests",
     "test:unit": "jest --config ./jest/unit.config.js --passWithNoTests",
-    "test": "npm run build && npm run lint && npm run test:snap && npm run test:spec && npm run test:unit",
+    "test": "npm run build && npm run lint && npm run test:snap && npm run test:image && npm run test:spec && npm run test:unit",
     "watch": "gulp build && gulp watch"
   },
   "pre-commit": [
@@ -36,6 +38,7 @@
     "eslint": "^5.12.1",
     "eslint-config-mosaic": "^0.1.2",
     "eslint-plugin-html": "^5.0.0",
+    "express": "^4.16.4",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat-css": "^3.1.0",
@@ -46,8 +49,12 @@
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "jest": "^23.6.0",
+    "jest-image-snapshot": "^2.8.1",
+    "jest-puppeteer": "^4.0.0",
+    "jest-puppeteer-preset": "^4.0.0",
     "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",
+    "puppeteer": "^1.12.2",
     "sass-lint": "^1.12.1",
     "webpack-stream": "^5.2.1"
   }
