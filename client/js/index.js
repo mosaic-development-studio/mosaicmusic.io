@@ -1,17 +1,11 @@
-import { AudioPlayer } from './components/AudioPlayer';
+import { audioInitializer } from './components/audio';
 import { clickScroller } from './lib/utils';
-import { scrollBarInitializer } from './scroll-bar';
-import { trackList } from './lib/trackList';
+import { scrollbarInitializer } from './components/scrollbar';
 
 const initializeApplication = () => {
-    new AudioPlayer({
-        currentTime: 0,
-        node: document.querySelector('.mosaic-player'),
-        src: '../audio/1.mp3',
-        trackList
-    });
+    audioInitializer(document.querySelector('.mosaic-player'));
     clickScroller(document.getElementById('mosaic-footer-logo'), 0);
-    scrollBarInitializer(
+    scrollbarInitializer(
         document.querySelector('.mosaic-scroll-bar'),
         document.querySelector('.mosaic-scroll-bar-scroller')
     );

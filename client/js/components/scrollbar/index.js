@@ -1,4 +1,4 @@
-import { documentHeight, elementOffsetHeight, scrollToY } from '../lib/utils';
+import { documentHeight, elementOffsetHeight, scrollToY } from '../../lib/utils';
 import {
     calculateNewPosition,
     calculateScrollerMargin,
@@ -11,7 +11,7 @@ const scrollToNewPosition = function scrollToNewPosition({ offsetY }) {
     scrollToY(calculateNewPosition(this, offsetY));
 };
 
-export const scrollBarInitializer = function(scrollBarNode, scrollerNode) {
+export const scrollbarInitializer = function(scrollBarNode, scrollerNode) {
     this.documentHeight = documentHeight();
     this.scrollBarHeight = elementOffsetHeight(scrollBarNode);
 

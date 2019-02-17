@@ -1,10 +1,10 @@
-import { CONSTANTS } from '../lib/constants';
+import { CONSTANTS } from '../../lib/constants';
 import {
     distanceFromPageTop,
     viewportHeight,
     viewportWidth,
     visibleDocumentHeightPercentage
-} from '../lib/utils';
+} from '../../lib/utils';
 
 const { SCROLLBAR_HIDDEN_HEIGHT, SCROLLBAR_HIDDEN_WIDTH } = CONSTANTS;
 
