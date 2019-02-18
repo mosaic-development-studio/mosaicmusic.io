@@ -10,7 +10,7 @@ export const DESTINATION = {
 
 export const SOURCE = {
     CSS: 'client/**/*.css',
-    HTML: 'client/**/*.html',
+    HTML: 'client/index.html',
     JAVASCRIPT: 'client/js/index.js',
     SASS: {
         ABOVE_THE_FOLD: 'client/scss/critical.scss',
