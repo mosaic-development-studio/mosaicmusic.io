@@ -120,12 +120,26 @@ export class AudioPlayer {
                 this.resizeProgressBar();
                 return;
             case 'timeupdate':
-                this.updateCurrentTime(target.currentTime);
-                this.updateTime(this.currentTimeNode, target.currentTime);
-                this.movePlayhead();
+                this.handleTimeUpdate(target.currentTime, this.currentTimeNode);
                 return;
             default:
                 return;
+        }
+    }
+
+    handleTimeUpdate(currentTime, timeNode) {
+        this.updateCurrentTime(currentTime);
+        this.updateTime(timeNode, currentTime);
+        this.movePlayhead();
+
+        if (this.state.currentTime === this.state.duration) {
+            this.iconToggle();
+            this.trackChange(TRACK_ACTIONS[NEXT_BUTTON]);
+            this.updateTrackDOM();
+
+            if (this.state.paused === false) {
+                this.play();
+            }
         }
     }
 
