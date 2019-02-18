@@ -1,15 +1,12 @@
-import { documentHeight, elementOffsetHeight, scrollToY } from '../../lib/utils';
+import { documentHeight, elementOffsetHeight } from '../../lib/utils';
 import {
-    calculateNewPosition,
     calculateScrollerMargin,
+    dragScroller,
     setScrollerMarginTop,
     scrollBarIsVisible,
+    scrollToNewPosition,
     setNewScrollerStyles
 } from './utils';
-
-const scrollToNewPosition = function scrollToNewPosition({ offsetY }) {
-    scrollToY(calculateNewPosition(this, offsetY));
-};
 
 export const scrollbarInitializer = function(scrollBarNode, scrollerNode) {
     this.documentHeight = documentHeight();
@@ -18,6 +15,11 @@ export const scrollbarInitializer = function(scrollBarNode, scrollerNode) {
     setNewScrollerStyles(scrollerNode, this);
 
     scrollBarNode.addEventListener('click', scrollToNewPosition.bind(this));
+    scrollBarNode.addEventListener('mousedown', () => {
+        this.mouseDown = true;
+
+        scrollBarNode.addEventListener('mousemove', dragScroller.bind(this));
+    });
 
     window.addEventListener('resize', () => {
         if (scrollBarIsVisible() && !this.scrollBarHeight) {
