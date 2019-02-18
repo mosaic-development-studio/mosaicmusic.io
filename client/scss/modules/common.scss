@@ -23,7 +23,11 @@ a {
     -o-transition: all 250ms ease-in-out;
     transition: all 250ms ease-in-out;
 
-    &:after:not(#mosaic-footer-logo) {
+    &#mosaic-footer-logo:after {
+        content: none;
+    }
+
+    &:after {
         position: absolute;
         top: -5px;
         left: 0;

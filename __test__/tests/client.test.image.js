@@ -32,6 +32,6 @@ describe('Client style regression tests', () => {
 
             expect.assertions(1);
             expect(screenshot).toMatchImageSnapshot();
-        });
+        }, 30000);
     }
 });

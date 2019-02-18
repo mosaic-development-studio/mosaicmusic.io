@@ -21,10 +21,10 @@ export const findIndexOfNextTrack = (action, currentTrack, trackList) => {
 };
 
 export const formatPlaybackTime = timeInSeconds => {
-    let sec_num = parseInt(timeInSeconds, 10);
-    let hours = Math.floor(sec_num / 3600);
-    let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-    let seconds = sec_num - (hours * 3600) - (minutes * 60);
+    let intTimeInSeconds = parseInt(timeInSeconds, 10);
+    let hours = Math.floor(intTimeInSeconds / 3600);
+    let minutes = Math.floor((intTimeInSeconds - (hours * 3600)) / 60);
+    let seconds = intTimeInSeconds - (hours * 3600) - (minutes * 60);
 
     if (hours < 10 && hours > 0) {
         hours = '0' + hours + ':';
@@ -43,4 +43,7 @@ export const formatPlaybackTime = timeInSeconds => {
     return hours + minutes + ':' + seconds;
 };
 
-export const isObject = object => object === Object(object);
+export const isObject = object =>
+    object === Object(object)
+        && typeof object === 'object'
+        && !Array.isArray(object);
