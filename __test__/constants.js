@@ -1,4 +1,8 @@
 export const SCREEN_SIZES = {
+    COMPRESSED: {
+        height: 300,
+        width: 1680
+    },
     LARGE: {
         height: 800,
         width: 1680
