@@ -1,18 +1,17 @@
-import { audioInitializer } from './components/audio';
+import { AudioPlayer } from './components/audio/AudioPlayer';
 import { clickScroller } from './lib/utils';
-import { scrollbarInitializer } from './components/scrollbar';
-
 import { Scrollbar } from './components/scrollbar/Scrollbar';
+import { trackList } from './lib/trackList';
 
-Scrollbar.initialize(document.querySelector('.mosaic-scroll-bar'));
+const initializeApplication = () => {
+    new AudioPlayer({
+        currentTime: 0,
+        node: document.querySelector('.mosaic-player'),
+        trackList
+    });
+    new Scrollbar(document.querySelector('.mosaic-scroll-bar'));
 
-// const initializeApplication = () => {
-//     audioInitializer(document.querySelector('.mosaic-player'));
-//     clickScroller(document.getElementById('mosaic-footer-logo'), 0);
-//     scrollbarInitializer(
-//         document.querySelector('.mosaic-scroll-bar'),
-//         document.querySelector('.mosaic-scroll-bar-scroller')
-//     );
-// };
+    clickScroller(document.getElementById('mosaic-footer-logo'), 0);
+};
 
-// window.addEventListener('load', initializeApplication);
+window.addEventListener('load', initializeApplication);

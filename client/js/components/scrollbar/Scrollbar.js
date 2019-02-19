@@ -72,7 +72,3 @@ export class Scrollbar extends State {
         scrollToY(calculateNewPosition(this.state, offsetY));
     }
 }
-
-Scrollbar.initialize = node => {
-    new Scrollbar(node);
-};
