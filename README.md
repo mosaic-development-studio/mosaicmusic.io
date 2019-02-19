@@ -1,2 +1,2 @@
 # mosaic
-Visit [mosaicmusic.io].(http://mosaicmusic.io/)
+Visit [mosaicmusic.io](http://mosaicmusic.io/).
