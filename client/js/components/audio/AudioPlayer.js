@@ -32,10 +32,9 @@ export const TRACK_ACTIONS = {
 };
 
 export class AudioPlayer extends State {
-    constructor({ currentTime = 0, node, src, trackList }) {
+    constructor({ currentTime = 0, node, trackList }) {
         super();
         this.node = node;
-        this.src = src;
         this.trackList = trackList;
 
         this.audio = this.node.querySelector('audio');
