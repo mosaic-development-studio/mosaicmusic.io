@@ -15,7 +15,8 @@ export const scrollbarInitializer = function(scrollBarNode, scrollerNode) {
     setNewScrollerStyles(scrollerNode, this);
 
     scrollBarNode.addEventListener('click', scrollToNewPosition.bind(this));
-    scrollBarNode.addEventListener('mousedown', () => {
+    scrollBarNode.addEventListener('mousedown', e => {
+        e.preventDefault();
         this.mouseDown = true;
 
         scrollBarNode.addEventListener('mousemove', dragScroller.bind(this));

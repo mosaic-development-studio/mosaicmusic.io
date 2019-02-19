@@ -25,7 +25,6 @@ const calculateScrollerHeight = ({ scrollBarHeight }) => {
 
 export const dragScroller = function dragScroller(e) {
     if (this.mouseDown) {
-        document.body.classList.add('user-select-none');
 
         scrollToNewPosition.bind(this)(e);
     }
@@ -35,7 +34,6 @@ export const dragScroller = function dragScroller(e) {
 
 const endScrollerDrag = function endScrollerDrag() {
     this.mouseDown = false;
-    document.body.classList.remove('user-select-none');
 
     window.removeEventListener('mousemove', endScrollerDrag);
 };

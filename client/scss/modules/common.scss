@@ -8,10 +8,6 @@ body {
     cursor: default;
     color: $main-font-color;
     font-family: $body-font;
-
-    &.user-select-none {
-        user-select: none;
-    }
 }
 
 html {
