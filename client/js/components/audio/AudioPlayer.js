@@ -2,9 +2,9 @@ import {
     findCurrentTrackFromNode,
     findIndexOfNextTrack,
     formatPlaybackTime,
-    handleOffsetParent,
-    isObject
+    handleOffsetParent
 } from '../../lib/utils';
+import { State } from '../../lib/State';
 
 const AUDIO_PLAYER_CLASSNAMES = {
     NEXT_BUTTON: 'mosaic-next',
@@ -31,10 +31,10 @@ export const TRACK_ACTIONS = {
     [PREVIOUS_BUTTON]: 'PREVIOUS'
 };
 
-export class AudioPlayer {
-    constructor({ currentTime = 0, node, src, trackList }) {
+export class AudioPlayer extends State {
+    constructor({ currentTime = 0, node, trackList }) {
+        super();
         this.node = node;
-        this.src = src;
         this.trackList = trackList;
 
         this.audio = this.node.querySelector('audio');
@@ -210,15 +210,6 @@ export class AudioPlayer {
 
     setAudioCurrentTime(currentTime) {
         this.audio.currentTime = currentTime;
-    }
-
-    setState(newState = {}) {
-        if (isObject(newState)) {
-            this.state = {
-                ...this.state,
-                ...newState
-            };
-        }
     }
 
     trackChange(action) {
