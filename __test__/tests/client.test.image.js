@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 import { SCREEN_SIZES } from '../constants';
+import { TEST_SERVER_PORT } from '../index';
 import { toMatchImageSnapshot } from 'jest-image-snapshot';
 
 expect.extend({ toMatchImageSnapshot });
@@ -20,7 +21,7 @@ describe('Client style regression tests', () => {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
 
-            await page.goto('http://localhost:3000', {
+            await page.goto(`http://localhost:${TEST_SERVER_PORT}`, {
                 timeout: 5000,
                 waitUntil: 'networkidle0'
             });
