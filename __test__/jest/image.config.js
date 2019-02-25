@@ -4,7 +4,7 @@ module.exports = {
     ...base,
     globals: {
         __ENV__: {
-            DEFAULT_TEST_PORT: 3000
+            DEFAULT_TEST_PORT: 3001
         }
     },
     preset: 'jest-puppeteer',
